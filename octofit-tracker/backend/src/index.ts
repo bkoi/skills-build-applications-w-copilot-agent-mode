@@ -12,7 +12,7 @@ const port = process.env.PORT ?? 8000;
 // Determine API URL (Codespaces-aware)
 const getApiUrl = (): string => {
   if (process.env.CODESPACE_NAME) {
-    return `https://${process.env.CODESPACE_NAME}-8000.${process.env.GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}`;
+    return `https://${process.env.CODESPACE_NAME}-8000.app.github.dev`;
   }
   return `http://localhost:${port}`;
 };
