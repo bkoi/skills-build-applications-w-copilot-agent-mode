@@ -4,6 +4,8 @@
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "rootDir": "src",
+    "lib": ["ES2020"],
+    "types": ["node"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
