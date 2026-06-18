@@ -8,7 +8,7 @@ import workoutsRouter from './routes/workouts.js';
 
 const app = express();
 const port = process.env.PORT ?? 8000;
-const mongoUri = process.env.MONGO_URI ?? 'mongodb://127.0.0.1:27017/octofit';
+const mongoUri = process.env.MONGO_URI ?? 'mongodb://127.0.0.1:27017/octofit_db';
 
 // Determine API URL (Codespaces-aware)
 const getApiUrl = (): string => {
