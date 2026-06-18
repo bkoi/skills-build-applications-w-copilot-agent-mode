@@ -1,10 +1,13 @@
 import CollectionPage from './CollectionPage';
+import { getResourceEndpoint } from '../api';
 
 export default function Activities() {
+  const activitiesEndpoint = getResourceEndpoint('activities');
+
   return (
     <CollectionPage
       title="Activities"
-      resource="activities"
+      endpoint={activitiesEndpoint}
       emptyMessage="No activities have been logged yet."
       renderItem={(activity) => (
         <article className="card border-0 h-100 shadow-sm">

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { fetchCollection, getApiBaseUrl, getEndpointUrl } from '../api';
+import { fetchCollection, getApiBaseUrl } from '../api';
 
 export default function CollectionPage({
   title,
-  resource,
+  endpoint,
   emptyMessage,
   renderItem,
 }) {
@@ -20,7 +20,7 @@ export default function CollectionPage({
       setError('');
 
       try {
-        const result = await fetchCollection(resource);
+        const result = await fetchCollection(endpoint);
 
         if (!isMounted) {
           return;
@@ -46,9 +46,8 @@ export default function CollectionPage({
     return () => {
       isMounted = false;
     };
-  }, [resource]);
+  }, [endpoint]);
 
-  const endpointUrl = getEndpointUrl(resource);
   const usingCodespaces = Boolean(import.meta.env.VITE_CODESPACE_NAME?.trim());
 
   return (
@@ -58,7 +57,7 @@ export default function CollectionPage({
           <p className="eyebrow mb-2">Presentation Tier</p>
           <h2 className="h3 mb-2">{title}</h2>
           <p className="text-secondary mb-0">
-            Data source: <code>{endpointUrl}</code>
+            Data source: <code>{endpoint}</code>
           </p>
         </div>
 
@@ -86,7 +85,7 @@ export default function CollectionPage({
           {items.length > 0 ? (
             <div className="row g-3">
               {items.map((item, index) => (
-                <div className="col-12 col-md-6" key={item._id ?? item.id ?? `${resource}-${index}`}>
+                <div className="col-12 col-md-6" key={item._id ?? item.id ?? `${title}-${index}`}>
                   {renderItem(item)}
                 </div>
               ))}

@@ -8,6 +8,16 @@ export const getApiBaseUrl = () => {
   return 'http://localhost:8000/api';
 };
 
+export const getResourceEndpoint = (resource) => {
+  const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim();
+
+  if (codespaceName) {
+    return `https://${codespaceName}-8000.app.github.dev/api/${resource}/`;
+  }
+
+  return `http://localhost:8000/api/${resource}/`;
+};
+
 export const getEndpointUrl = (resource) => `${getApiBaseUrl()}/${resource}/`;
 
 export const normalizeCollectionResponse = (payload) => {
@@ -39,8 +49,8 @@ export const normalizeCollectionResponse = (payload) => {
   return { items: [], count: 0 };
 };
 
-export const fetchCollection = async (resource) => {
-  const response = await fetch(getEndpointUrl(resource));
+export const fetchCollection = async (endpoint) => {
+  const response = await fetch(endpoint);
 
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`);

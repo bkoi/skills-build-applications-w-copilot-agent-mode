@@ -1,10 +1,13 @@
 import CollectionPage from './CollectionPage';
+import { getResourceEndpoint } from '../api';
 
 export default function Users() {
+  const usersEndpoint = getResourceEndpoint('users');
+
   return (
     <CollectionPage
       title="Users"
-      resource="users"
+      endpoint={usersEndpoint}
       emptyMessage="No users are available yet. Seed the backend or create users through the API."
       renderItem={(user) => (
         <article className="card border-0 h-100 shadow-sm">

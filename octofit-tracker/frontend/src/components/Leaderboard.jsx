@@ -1,10 +1,13 @@
 import CollectionPage from './CollectionPage';
+import { getResourceEndpoint } from '../api';
 
 export default function Leaderboard() {
+  const leaderboardEndpoint = getResourceEndpoint('leaderboard');
+
   return (
     <CollectionPage
       title="Leaderboard"
-      resource="leaderboard"
+      endpoint={leaderboardEndpoint}
       emptyMessage="Leaderboard entries will appear after activities are scored."
       renderItem={(entry) => (
         <article className="card border-0 h-100 shadow-sm">

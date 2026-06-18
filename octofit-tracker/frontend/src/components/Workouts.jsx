@@ -1,10 +1,13 @@
 import CollectionPage from './CollectionPage';
+import { getResourceEndpoint } from '../api';
 
 export default function Workouts() {
+  const workoutsEndpoint = getResourceEndpoint('workouts');
+
   return (
     <CollectionPage
       title="Workouts"
-      resource="workouts"
+      endpoint={workoutsEndpoint}
       emptyMessage="No workouts are available yet."
       renderItem={(workout) => (
         <article className="card border-0 h-100 shadow-sm">

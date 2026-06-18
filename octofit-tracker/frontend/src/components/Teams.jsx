@@ -1,10 +1,13 @@
 import CollectionPage from './CollectionPage';
+import { getResourceEndpoint } from '../api';
 
 export default function Teams() {
+  const teamsEndpoint = getResourceEndpoint('teams');
+
   return (
     <CollectionPage
       title="Teams"
-      resource="teams"
+      endpoint={teamsEndpoint}
       emptyMessage="No teams have been created yet."
       renderItem={(team) => (
         <article className="card border-0 h-100 shadow-sm">
