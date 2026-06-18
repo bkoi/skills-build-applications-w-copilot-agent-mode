@@ -2,6 +2,7 @@ import CollectionPage from './CollectionPage';
 import { getResourceEndpoint } from '../api';
 
 export default function Leaderboard() {
+  // API endpoint: https://${CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/
   const leaderboardEndpoint = getResourceEndpoint('leaderboard');
 
   return (

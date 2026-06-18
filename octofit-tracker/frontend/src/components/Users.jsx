@@ -2,6 +2,7 @@ import CollectionPage from './CollectionPage';
 import { getResourceEndpoint } from '../api';
 
 export default function Users() {
+  // API endpoint: https://${CODESPACE_NAME}-8000.app.github.dev/api/users/
   const usersEndpoint = getResourceEndpoint('users');
 
   return (

@@ -2,6 +2,7 @@ import CollectionPage from './CollectionPage';
 import { getResourceEndpoint } from '../api';
 
 export default function Workouts() {
+  // API endpoint: https://${CODESPACE_NAME}-8000.app.github.dev/api/workouts/
   const workoutsEndpoint = getResourceEndpoint('workouts');
 
   return (

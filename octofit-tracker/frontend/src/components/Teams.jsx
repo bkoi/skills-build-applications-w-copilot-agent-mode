@@ -2,6 +2,7 @@ import CollectionPage from './CollectionPage';
 import { getResourceEndpoint } from '../api';
 
 export default function Teams() {
+  // API endpoint: https://${CODESPACE_NAME}-8000.app.github.dev/api/teams/
   const teamsEndpoint = getResourceEndpoint('teams');
 
   return (
